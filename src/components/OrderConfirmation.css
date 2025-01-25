@@ -1,0 +1,28 @@
+.order-confirmation {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-confirmation h2 {
+    text-align: center;
+}
+
+.order-confirmation p {
+    margin: 10px 0;
+}
+
+.order-confirmation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-confirmation ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
