@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../CartContext';
 import { useNavigate } from 'react-router-dom';
-import { createOrder } from './api.js';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -13,21 +12,12 @@ const Checkout = () => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const order = {
-            ...form,
-            items: cart.map(item => ({ productId: item._id, quantity: item.quantity })),
-            totalAmount: cart.reduce((total, item) => total + item.price * item.quantity, 0)
-        };
-
-        try {
-            const newOrder = await createOrder(order);
-            dispatch({ type: 'CLEAR_CART' });
-            navigate(`/order-confirmation/${newOrder._id}`);
-        } catch (error) {
-            console.error('Error creating order:', error);
-        }
+        // Here you can handle the order submission logic without API call
+        alert('Order submitted successfully!'); // Placeholder for order submission
+        dispatch({ type: 'CLEAR_CART' });
+        navigate('/order-confirmation'); // Navigate to confirmation page
     };
 
     return (
