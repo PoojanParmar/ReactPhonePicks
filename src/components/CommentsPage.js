@@ -52,11 +52,7 @@ const CommentsPage = ({ product }) => {
     setRating(0);
     setComment('');
     setImage(null);
-
-    
-    // User feedback for successful submission
-    alert('Comment submitted successfully!');
-
+  };
 
   return (
     <div className="comments-page">
@@ -122,5 +118,5 @@ const CommentsPage = ({ product }) => {
     </div>
   );
 };
-}
+
 export default CommentsPage;
