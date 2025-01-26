@@ -1,7 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getOrderById } from './api.js';
 import './OrderConfirmation.css';
+
+const getOrderById = async (id) => {
+    // Mock implementation of fetching order data
+    return {
+        _id: id,
+        name: 'Savan Patel',
+        email: 'Savan@gmail.com',
+        address: '45, Woodhaven Road',
+        items: [
+            { _id: '1', productId: { name: 'Product 1', price: 29.99 }, quantity: 1 },
+            { _id: '2', productId: { name: 'Product 2', price: 49.99 }, quantity: 2 },
+        ],
+        totalAmount: 129.97,
+    };
+};
 
 const OrderConfirmation = () => {
     const { id } = useParams();
