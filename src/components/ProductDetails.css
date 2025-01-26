@@ -1,0 +1,74 @@
+/* Main container for product details */
+.product-details {
+    max-width: 1200px; /* Restrict maximum width for a cleaner look */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the product image */
+.product-image {
+    width: 100%;
+    max-width: 400px; /* Ensure the image is not too large */
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 auto 20px auto; /* Center and add margin below */
+}
+
+/* Heading for product name */
+.product-details h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Description and price styling */
+.product-details p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Price styling */
+.product-details .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff9900;
+    margin-bottom: 20px;
+}
+
+/* Section for the comment box */
+.comments-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Mobile Responsiveness: Adjust layout for small screens */
+@media (max-width: 768px) {
+    .product-details {
+        padding: 15px;
+    }
+
+    .product-image {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+
+    .product-details h2 {
+        font-size: 1.6rem;
+    }
+
+    .product-details p {
+        font-size: 1rem;
+    }
+}
