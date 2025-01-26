@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import './OrderConfirmation.css';
 
 const getOrderById = async (id) => {
-    // Mock implementation of fetching order data
+   
     return {
         _id: id,
         name: 'Savan Patel',

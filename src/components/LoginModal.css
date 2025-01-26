@@ -86,3 +86,19 @@ input:focus {
     margin-top: 15px;
     transition: background-color 0.3s ease;
 }
+
+.close-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsiveness */
+@media (max-width: 500px) {
+    .modal-content {
+        width: 90%;
+        max-width: 95%;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,155 @@
+/* Main container for the comments page */
+.comments-page {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Heading for the page */
+.comments-page h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Styling for the comment form */
+.comments-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Rating section */
+.rating {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 32px;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.star.filled {
+    color: gold;
+}
+
+/* Comment textarea */
+.comment textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.image-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.image-upload input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.preview-image {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 14px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+/* Comments list section */
+.comments-list {
+    margin-top: 40px;
+}
+
+/* Individual comment styling */
+.comment-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.comment-item:hover {
+    transform: scale(1.02);
+}
+
+/* Rating in comment item */
+.comment-rating {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.comment-rating .star {
+    font-size: 24px;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+.rate{
+    margin-top: 15px;
+}
+
+/* If no comments, show this message */
+.comments-list p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .comments-page {
+        padding: 20px;
+    }
+
+    .comment textarea {
+        font-size: 14px;
+    }
+
+    .star {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
