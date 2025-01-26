@@ -14,6 +14,19 @@ const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Validation for form inputs
+        if (!form.name || !form.email || !form.address) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailRegex.test(form.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
         // Here you can handle the order submission logic without API call
         alert('Order submitted successfully!'); // Placeholder for order submission
         dispatch({ type: 'CLEAR_CART' });

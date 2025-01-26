@@ -8,13 +8,17 @@ const Cart = () => {
 
     // Function to handle quantity update
     const updateQuantity = (productId, quantity) => {
-        if (quantity < 1) return; // Prevent going below 1
+        if (quantity < 1) {
+            alert('Quantity must be at least 1');
+            return; // Prevent going below 1
+        }
         dispatch({ type: 'ADJUST_QUANTITY', productId, quantity });
     };
 
     // Function to remove an item from the cart
     const removeFromCart = (productId) => {
         dispatch({ type: 'REMOVE_FROM_CART', productId });
+        alert('Item removed from cart'); // User feedback for removal
     };
 
     return (

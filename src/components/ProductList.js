@@ -38,6 +38,10 @@ const ProductList = ({ selectedCategory, user }) => {
 
     const addToCart = (product) => {
         const quantity = quantities[product._id];
+        if (quantity < 1) {
+            alert('Quantity must be at least 1');
+            return;
+        }
         dispatch({ type: 'ADD_TO_CART', product: { ...product, quantity } });
         
         // Set the "added to cart" effect

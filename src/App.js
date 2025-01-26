@@ -12,6 +12,12 @@ import LoginModal from './components/LoginModal';  // Import the LoginModal
 
 function App() {
     const [showLoginModal, setShowLoginModal] = useState(false);  // State to toggle the login modal
+    const [user, setUser] = useState(null); // State to manage user session
+
+    const handleLogout = () => {
+        setUser(null); // Clear user session
+        alert('You have logged out successfully.'); // User feedback
+    };
 
     return (
         <CartProvider>
@@ -32,13 +38,18 @@ function App() {
                             <li>
                                 <Link to="/account">Account</Link>
                             </li>
-
                         </ul>
                         <div className="navbar-actions">
-                            <button onClick={() => setShowLoginModal(true)} className="navbar-login-btn">
-                                Login
-                            </button>
-                        </div>
+                           
+                        </div> {user ? (
+                                <button onClick={handleLogout} className="navbar-logout-btn">
+                                    Logout
+                                </button>
+                            ) : (
+                                <button onClick={() => setShowLoginModal(true)} className="navbar-login-btn">
+                                    Login
+                                </button>
+                            )}
                     </nav>
 
                     {/* Main Content Area */}

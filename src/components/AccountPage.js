@@ -6,8 +6,23 @@ const AccountPage = () => {
 
   // Save user data (new or updated)
   const saveAccountData = (userData) => {
+    // Validation for user data
+    if (!userData.name || !userData.email || !userData.address) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(userData.email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     setUser(userData);
     alert('Account information saved successfully!');
+    
+    // Consider persisting user data (e.g., local storage or API call)
+    // localStorage.setItem('user', JSON.stringify(userData));
   };
 
   return (

@@ -52,6 +52,9 @@ const CommentsPage = ({ product }) => {
     setRating(0);
     setComment('');
     setImage(null);
+    
+    // User feedback for successful submission
+    alert('Comment submitted successfully!');
   };
 
   return (
