@@ -52,6 +52,12 @@ const CommentsPage = ({ product }) => {
     setRating(0);
     setComment('');
     setImage(null);
+<<<<<<< HEAD
+=======
+    
+    // User feedback for successful submission
+    alert('Comment submitted successfully!');
+>>>>>>> 934485db106af984442d94f16ce292b860b986d1
   };
 
   return (

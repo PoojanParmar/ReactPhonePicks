@@ -1,0 +1,66 @@
+    /* AccountForm.css */
+    .account-form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .account-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .account-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+    
+    .account-form input {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    
+    .account-form input:focus {
+        outline: none;
+        border-color: #0056b3;
+    }
+    
+    .account-form button {
+        width: 100%;
+        padding: 14px;
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .account-form button:hover {
+        background-color: #004494;
+    }
+    
+    .account-form input[type="password"] {
+        font-family: sans-serif;
+    }
+    
+    .account-form .error {
+        color: red;
+        font-size: 12px;
+        margin-top: -10px;
+    }
+    @media (max-width: 600px) {
+        .account-form {
+          width: 100%;
+          padding: 15px;
+        }
+      }
+      
