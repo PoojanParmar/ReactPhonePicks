@@ -40,8 +40,7 @@ function App() {
                             </li>
                         </ul>
                         <div className="navbar-actions">
-                           
-                        </div> {user ? (
+                            {user ? (
                                 <button onClick={handleLogout} className="navbar-logout-btn">
                                     Logout
                                 </button>
@@ -50,6 +49,7 @@ function App() {
                                     Login
                                 </button>
                             )}
+                        </div>
                     </nav>
 
                     {/* Main Content Area */}
@@ -70,7 +70,7 @@ function App() {
                     </main>
 
                     {/* Show the Login Modal when state is true */}
-                    {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
+                    {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} setUser={setUser} />}
                 </div>
             </Router>
         </CartProvider>

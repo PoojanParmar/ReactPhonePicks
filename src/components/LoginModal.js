@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';  // <-- Import useState here
 import './LoginModal.css';
 
 const LoginModal = ({ onClose, setUser }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(''); // State for error messages
+    const [email, setEmail] = useState('');  // Using useState for email
+    const [password, setPassword] = useState('');  // Using useState for password
+    const [error, setError] = useState('');  // Using useState for error message
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Placeholder for authentication logic
         const validEmail = 'poojan@gmail.com';
-        const validPassword = 'password123'; 
+        const validPassword = 'password123';
 
         if (email === validEmail && password === validPassword) {
             console.log('Logging in with:', { email, password });
-            setUser({ email }); 
+            setUser({ email });  // Update the user state in App
             onClose(); 
         } else {
-            setError('Invalid email or password. Please try again.'); // Set error message
+            setError('Invalid email or password. Please try again.');
         }
     };
 
@@ -49,7 +48,7 @@ const LoginModal = ({ onClose, setUser }) => {
                             required
                         />
                     </div>
-                    {error && <p className="error-message">{error}</p>} {/* Display error message */}
+                    {error && <p className="error-message">{error}</p>}
                     <button type="submit" className="submit-button">Login</button>
                 </form>
                 <button className="close-button" onClick={onClose}>Close</button>
