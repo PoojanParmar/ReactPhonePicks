@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useComments } from '../CommentsContext';  // Import the context
 import './CommentsPage.css';
 
 const CommentsPage = ({ product }) => {
-  const [rating, setRating] = useState(0); // Rating (0-5 stars)
+  const { productId } = useParams();  // Get productId from URL
+  const { comments, addComment } = useComments();  // Access context functions
+  const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
-  const [image, setImage] = useState(null); // Photo upload
-  const [comments, setComments] = useState([]); // Array to hold existing comments
+  const [image, setImage] = useState(null);
 
-  // Handle rating change (set star rating)
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
 
-  // Handle comment text change
   const handleCommentChange = (e) => {
     setComment(e.target.value);
   };
 
-  // Handle image upload
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file && file.type.startsWith('image/')) {
@@ -27,11 +27,9 @@ const CommentsPage = ({ product }) => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Make sure the user provided a rating and comment
     if (rating === 0 || comment.trim() === '') {
       alert('Please provide a rating and a comment.');
       return;
@@ -41,14 +39,13 @@ const CommentsPage = ({ product }) => {
     const newComment = {
       rating,
       comment,
-      image: image ? URL.createObjectURL(image) : null, // Display image preview
+      image: image ? URL.createObjectURL(image) : null,
       date: new Date().toLocaleDateString(),
     };
 
-    // Add the new comment to the existing list of comments
-    setComments((prevComments) => [...prevComments, newComment]);
+    addComment(productId, newComment);  // Add comment to context
 
-    // Reset the form
+    // Reset form after submitting
     setRating(0);
     setComment('');
     setImage(null);
@@ -58,10 +55,11 @@ const CommentsPage = ({ product }) => {
     <div className="comments-page">
       <h2>Rate and Comment on {product.name}</h2>
 
+      {/* Comment Form */}
       <form onSubmit={handleSubmit} className="comments-form">
-        {/* Rating section (stars) */}
+        {/* Rating section */}
         <div className="rating">
-          <label className='rate'>Rating:</label>
+          <label>Rating:</label>
           {[1, 2, 3, 4, 5].map((star) => (
             <span
               key={star}
@@ -73,7 +71,7 @@ const CommentsPage = ({ product }) => {
           ))}
         </div>
 
-        {/* Comment input */}
+        {/* Comment section */}
         <div className="comment">
           <label>Comment:</label>
           <textarea
@@ -85,7 +83,7 @@ const CommentsPage = ({ product }) => {
           />
         </div>
 
-        {/* Image upload (optional) */}
+        {/* Image upload */}
         <div className="image-upload">
           <label>Upload Photo (optional):</label>
           <input type="file" onChange={handleImageChange} accept="image/*" />
@@ -96,24 +94,28 @@ const CommentsPage = ({ product }) => {
         <button type="submit">Submit Comment</button>
       </form>
 
-      {/* Display comments */}
+      {/* Display existing comments */}
       <div className="comments-list">
         <h3>Comments</h3>
-        {comments.length === 0 && <p>No comments yet. Be the first to comment!</p>}
-        {comments.map((comment, index) => (
-          <div key={index} className="comment-item">
-            <div className="comment-rating">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <span key={star} className={`star ${star <= comment.rating ? 'filled' : ''}`}>
-                  ★
-                </span>
-              ))}
+        {comments[productId] && comments[productId].length > 0 ? (
+          comments[productId].map((comment, index) => (
+            <div key={index} className="comment-item">
+              {/* Display rating */}
+              <div className="comment-rating">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span key={star} className={`star ${star <= comment.rating ? 'filled' : ''}`}>
+                    ★
+                  </span>
+                ))}
+              </div>
+              <p>{comment.comment}</p>
+              {comment.image && <img src={comment.image} alt="Uploaded" className="uploaded-image" />}
+              <p className="comment-date">{comment.date}</p>
             </div>
-            <p>{comment.comment}</p>
-            {comment.image && <img src={comment.image} alt="Uploaded" className="uploaded-image" />}
-            <p className="comment-date">{comment.date}</p>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No comments yet. Be the first to comment!</p>
+        )}
       </div>
     </div>
   );
