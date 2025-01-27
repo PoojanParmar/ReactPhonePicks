@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisite
+
+Before running the app, ensure that all dependencies are installed. To do this, run:
+
+npm install
+
+This will install all the required packages from the package.json file.
+
 ## Available Scripts
 
 In the project directory, you can run:
