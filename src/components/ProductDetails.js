@@ -63,7 +63,7 @@ const ProductDetails = ({ user }) => {  // Assuming `user` is passed from the pa
                 category: 'Nothing',
                 price: 700.0,
                 description: 'This is the nothing phone',
-                imageUrl: './images/nothing.webp',
+                imageUrl: '/images/nothing.webp',
             },
         ];
 
